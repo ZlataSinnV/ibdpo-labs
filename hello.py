@@ -2,7 +2,7 @@
 import typer
 
 
-# Main function
+# Function "main"
 def main(
     name: str,
     lastname: str = typer.Option("", help="Фамилия пользователя."),
@@ -16,6 +16,6 @@ def main(
     else:
         print(f"Привет, {name}!")
 
-# Start point
+# Start point of this program
 if __name__ == "__main__":
     typer.run(main)
