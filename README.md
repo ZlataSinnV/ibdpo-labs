@@ -1,6 +1,8 @@
-# Лабораторные работы Course
+# Лабораторные работы по AppSec
 Цель - сформировать навыки работы с git, CI, CD, docker, packages, appsec toolchain, yml, etc.
 
+## Структура репозитория
+```
 ├── README.md
 ├── labs
 │   ├── lab01
@@ -34,4 +36,4 @@
 │   └── lab06
 │       └── README.md
 └── README.md
-
+```
