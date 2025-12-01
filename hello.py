@@ -1,6 +1,8 @@
+# Module import
 import typer
 
 
+# Main function
 def main(
     name: str,
     lastname: str = typer.Option("", help="Фамилия пользователя."),
@@ -14,5 +16,6 @@ def main(
     else:
         print(f"Привет, {name}!")
 
+# Start point
 if __name__ == "__main__":
     typer.run(main)
