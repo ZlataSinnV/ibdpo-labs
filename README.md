@@ -1,14 +1,37 @@
-Лабораторные работы Course
-GitHub Docs Markdown Unicode Shields RA RA Contributor Badge
-repo size repo size repo size  
-
-Салют 👋,
-Отмечу основные моменты:
-
+# Лабораторные работы Course
 Цель - сформировать навыки работы с git, CI, CD, docker, packages, appsec toolchain, yml, etc.
-*Часть работ базируется на на Go, Python, JAVA, js и и.д.
-Рассматриваются инструменты SAST, SCA, Container Security, DAST, Secret Detection, etc.
-Работы направлены на углубление и изучение материалов анализа рисков и оценки защищенности приложений, которые необходимы для итерационной разработки, также дают дополнительно возможности для изучения паттернов программирования, прототипирования
-Каждый мини проект должен будет собран по формату из представленных лабораторных работ и размещен на сервисе GitHub, с формирование соответствующего отчета в виде gistup для демонстрации выполненной работы и скриншотами результатов (где это требуется).
-Для каждой лабораторной работы следует создавать собственный репозиторий (возможно использование fork с родительского), в котором необходимо разместить исходный код проекта, далее составить отчет к нему в формате gistup.
-Все лабораторные работы должны быть выполнены в ветке develop и необходимо cделать approve по pull request на geminishkv, тем самым будет финально подтверждаться согласование изменений и правок, которые были внесены удаленно
+
+├── README.md
+├── labs
+│   ├── lab01
+│   │   ├── README.md
+│   │   └── typersteel.py
+│   ├── lab02
+│   │   ├── exmpl_hello.py
+│   │   ├── pygamesteel.py
+│   │   └── README.md
+│   ├── lab03
+│   │   ├── exmp_targets.txt
+│   │   └── README.md
+│   ├── lab04
+│   │   └── README.md
+│   ├── lab05
+│   │   ├── client
+│   │   │   ├── client.py
+│   │   │   ├── Dockerfile
+│   │   │   └── requirements.txt
+│   │   ├── docker-compose.yml
+│   │   ├── README.md
+│   │   ├── server
+│   │   │   ├── app.py
+│   │   │   ├── Dockerfile
+│   │   │   └── requirements.txt
+│   │   └── source
+│   │       ├── Dockerfile
+│   │       ├── hello.py
+│   │       ├── image.tar
+│   │       └── requirements.txt
+│   └── lab06
+│       └── README.md
+└── README.md
+
