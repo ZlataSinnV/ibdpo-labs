@@ -1,0 +1,21 @@
+PORT    STATE SERVICE VERSION
+631/tcp open  ipp     CUPS 2.4
+|_http-server-header: CUPS/2.4 IPP/2.1
+| vulners: 
+|   CUPS 2.4: 
+|     	MSF:EXPLOIT-MULTI-MISC-CUPS_IPP_REMOTE_CODE_EXECUTION-	9.8	https://vulners.com/metasploit/MSF:EXPLOIT-MULTI-MISC-CUPS_IPP_REMOTE_CODE_EXECUTION-	*EXPLOIT*
+|     	1337DAY-ID-39819	9.0	https://vulners.com/zdt/1337DAY-ID-39819	*EXPLOIT*
+|     	PACKETSTORM:182767	8.6	https://vulners.com/packetstorm/PACKETSTORM:182767*EXPLOIT*
+|     	6D7EB122-6604-5374-B851-DA56ABDA1F34	8.6	https://vulners.com/githubexploit/6D7EB122-6604-5374-B851-DA56ABDA1F34	*EXPLOIT*
+|     	34D7D370-3683-5358-9692-BB0B5AF7F412	8.6	https://vulners.com/githubexploit/34D7D370-3683-5358-9692-BB0B5AF7F412	*EXPLOIT*
+|     	CVE-2024-47850	7.5	https://vulners.com/cve/CVE-2024-47850
+|     	MSF:AUXILIARY-SCANNER-MISC-CUPS_BROWSED_INFO_DISCLOSURE-	5.3	https://vulners.com/metasploit/MSF:AUXILIARY-SCANNER-MISC-CUPS_BROWSED_INFO_DISCLOSURE-	*EXPLOIT*
+|     	F5502B30-710E-5D69-B67C-937F75899289	5.3	https://vulners.com/githubexploit/F5502B30-710E-5D69-B67C-937F75899289	*EXPLOIT*
+|     	D0B85558-0ED9-5259-A56D-4C807CC07FCF	5.3	https://vulners.com/githubexploit/D0B85558-0ED9-5259-A56D-4C807CC07FCF	*EXPLOIT*
+|     	ADDB422D-CF88-55B8-BA36-EC2BAC7507A0	5.3	https://vulners.com/githubexploit/ADDB422D-CF88-55B8-BA36-EC2BAC7507A0	*EXPLOIT*
+|     	9DB4B6B1-3FB0-5827-B554-3F3779D23B09	5.3	https://vulners.com/githubexploit/9DB4B6B1-3FB0-5827-B554-3F3779D23B09	*EXPLOIT*
+|_    	48FAED93-C711-59A0-B81E-A65D4463C7F0	5.3	https://vulners.com/githubexploit/48FAED93-C711-59A0-B81E-A65D4463C7F0	*EXPLOIT*
+|_http-aspnet-debug: ERROR: Script execution failed (use -d to debug)
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 49.45 seconds
