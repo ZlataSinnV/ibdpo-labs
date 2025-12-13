@@ -11,4 +11,4 @@ RUN pip install --no-index --find-links=/wheels -r requirements.txt
 COPY hello_my.py .
 
 ENV PYTHONUNBUFFERED=1
-CMD ["python", "hello_my.py"]
+ENTRYPOINT ["python", "hello_my.py"]
