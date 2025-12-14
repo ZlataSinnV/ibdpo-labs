@@ -1,0 +1,85 @@
+version: "3.8"
+
+services:
+  web:
+    image: nginx:alpine
+    container_name: secure-nginx
+    depends_on:
+      - app
+    ports:
+      - "127.0.0.1:8080:80"   # доступ только с хоста
+    volumes:
+      - ./config/nginx.conf:/etc/nginx/nginx.conf:ro
+    user: "nginx"
+    read_only: true
+    tmpfs:
+      - /var/cache/nginx
+      - /var/run
+      - /tmp
+    cap_drop: [ "ALL" ]
+    cap_add: [ "NET_BIND_SERVICE" ]
+    security_opt:
+      - no-new-privileges:true
+    networks: [ front ]
+
+  app:
+    image: python:3.11-alpine
+    container_name: secure-app
+    depends_on:
+      - db
+    working_dir: /app
+    volumes:
+      - ./app:/app:ro            # код только для чтения
+    command: ["python", "app.py"]
+    environment:
+      - DEBUG=false
+      - DB_HOST=db
+      - DB_NAME=vulnapp
+      - DB_USER=vulnuser
+    secrets:
+      - db_password
+      - app_secret
+    read_only: true
+    tmpfs:
+      - /tmp
+    cap_drop: [ "ALL" ]
+    security_opt:
+      - no-new-privileges:true
+    networks: [ front, back ]
+    ports:
+      - "127.0.0.1:5001:5000"    # если нужно — ограничить localhost
+
+  db:
+    image: postgres:16-alpine
+    container_name: secure-db
+    environment:
+      - POSTGRES_DB=vulnapp
+      - POSTGRES_USER=vulnuser
+      - POSTGRES_PASSWORD_FILE=/run/secrets/db_password
+    secrets:
+      - db_password
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    expose:
+      - "5432"                   # без публикации наружу
+    networks: [ back ]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U vulnuser -d vulnapp"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  db_data:
+
+secrets:
+  db_password:
+    file: ./secrets/db_password.txt
+  app_secret:
+    file: ./secrets/app_secret.txt
+
+networks:
+  front:
+  back:
+    internal: true

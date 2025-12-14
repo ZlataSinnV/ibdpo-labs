@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  # Без host network, без privileged, без docker.sock, без /hostroot
+  vulnerable-web:
+    image: nginx:alpine
+    container_name: vulnerable-web-safe
+    ports:
+      - "127.0.0.1:8081:80"
+    volumes:
+      - ./config/nginx.conf:/etc/nginx/nginx.conf:ro
+    user: "nginx"
+    read_only: true
+    tmpfs: [ "/tmp", "/var/run", "/var/cache/nginx" ]
+    cap_drop: [ "ALL" ]
+    cap_add: [ "NET_BIND_SERVICE" ]
+    security_opt:
+      - no-new-privileges:true
+
+  # Debug контейнер только по профилю и без SSH
+  debug-shell:
+    image: alpine:latest
+    container_name: debug-shell-safe
+    profiles: ["debug"]
+    command: ["sh", "-lc", "apk add --no-cache curl && sh"]
+    read_only: true
+    tmpfs: [ "/tmp" ]
+    cap_drop: [ "ALL" ]
+    security_opt:
+      - no-new-privileges:true
